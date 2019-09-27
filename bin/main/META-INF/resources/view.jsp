@@ -28,7 +28,7 @@ page import="au.com.permeance.utility.logviewer.portlets.PortletPropsValues" %>
 	message="ui-request-processed-error"
 />
 
-<script type="text/javascript">
+<aui:script>
 
 	window.errorThreshold = 10;
 	window.consecutiveErrorCount = 0;
@@ -115,7 +115,19 @@ page import="au.com.permeance.utility.logviewer.portlets.PortletPropsValues" %>
 	}
 
 	window.pollingIntervalId = setInterval(poll, <%= String.valueOf(PortletPropsValues.PERMEANCE_LOG_VIEWER_REFRESH_INTERVAL) %>);
-</script>
+
+	Liferay.on('startNavigate', function() {
+
+		clearTimeout(window.pollingIntervalId);
+	    detachlogger();
+	});
+
+	Liferay.on('endNavigate', function(event) {
+
+		clearTimeout(window.pollingIntervalId);
+	    detachlogger();
+	});
+</aui:script>
 
 <div class="container">
 
@@ -144,6 +156,7 @@ page import="au.com.permeance.utility.logviewer.portlets.PortletPropsValues" %>
 	<p class="small">
 	<em><liferay-ui:message key="you-can-set-portal-property" /> <b>permeance.log.viewer.autoattach</b> <liferay-ui:message key="autoattach-description" /></em><br />
 	<em><liferay-ui:message key="you-can-set-portal-property" /> <b>permeance.log.viewer.pattern</b> <liferay-ui:message key="pattern-description" /></em><br /><br />
+	<em>Credits: Permeance Technologies & <a href="https://twitter.com/baxtheman">@baxtheman</a></em>
 	</p>
 
 </div>

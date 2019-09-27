@@ -1,7 +1,7 @@
 
 # Liferay Log Viewer Portlet
 
-## FORK & REVAMP FROM THE ORIGINAL GOOD LOG VIEWER BY Permeance (Thank you!!)
+## FORK & REVAMP FROM THE ORIGINAL GOOD LOG VIEWER BY Permeance Technologies (Thank you from whole community)
 
 This project provides a portlet that attaches to the Liferay Portal's log4j mechanism to provide a log view within the browser.
 
