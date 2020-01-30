@@ -115,6 +115,11 @@ page import="au.com.permeance.utility.logviewer.portlets.PortletPropsValues" %>
 	}
 
 	window.pollingIntervalId = setInterval(poll, <%= String.valueOf(PortletPropsValues.PERMEANCE_LOG_VIEWER_REFRESH_INTERVAL) %>);
+
+	Liferay.on('endNavigate', function() {
+        console.log('detach logger');
+		detachlogger();
+    });
 </script>
 
 <div class="container">
