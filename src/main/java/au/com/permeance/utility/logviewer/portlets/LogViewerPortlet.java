@@ -15,17 +15,6 @@
 
 package au.com.permeance.utility.logviewer.portlets;
 
-import com.liferay.portal.kernel.json.JSONFactoryUtil;
-import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
-import com.liferay.portal.kernel.servlet.HttpHeaders;
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.HtmlUtil;
-import com.liferay.portal.kernel.util.PortletCategoryKeys;
-import com.liferay.portal.kernel.util.StringPool;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -38,6 +27,16 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import org.osgi.service.component.annotations.Component;
+
+import com.liferay.petra.string.StringPool;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.portal.kernel.servlet.HttpHeaders;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
 
 /**
  * LogViewerPortlet
@@ -54,6 +53,7 @@ import org.osgi.service.component.annotations.Component;
 			"com.liferay.portlet.css-class-wrapper=portlet-controlpanel",
 			"com.liferay.portlet.render-weight=100",
 			"javax.portlet.expiration-cache=0",
+			"javax.portlet.version=3.0",
 			"javax.portlet.resource-bundle=content.Language",
 			"javax.portlet.init-param.view-template=/view.jsp",
 			"javax.portlet.security-role-ref=administrator",
@@ -126,7 +126,8 @@ public class LogViewerPortlet extends MVCPortlet {
 			resourceResponse.addProperty(
 				HttpHeaders.CACHE_CONTROL, PortletConstants.NO_CACHE);
 
-			final String cmd = resourceRequest.getParameter(PARAM_OP);
+			final String cmd = resourceRequest.getParameter(
+				PARAM_OP);
 
 			if (OP_ATTACH.equals(cmd)) {
 				try {
@@ -158,7 +159,8 @@ public class LogViewerPortlet extends MVCPortlet {
 			} else {
 
 				final int pointer = GetterUtil.getInteger(
-					resourceRequest.getParameter(ATTRIB_POINTER), -1);
+					resourceRequest.getParameter(
+						ATTRIB_POINTER), -1);
 
 				final RollingLogViewer viewer = LogHolder.getViewer();
 
