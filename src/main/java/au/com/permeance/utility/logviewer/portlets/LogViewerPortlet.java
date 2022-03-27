@@ -15,6 +15,7 @@
 
 package au.com.permeance.utility.logviewer.portlets;
 
+import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
@@ -24,7 +25,6 @@ import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.PortletCategoryKeys;
-import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,5 +1,6 @@
 dependencies {
 	compileOnly group: "com.liferay", name: "com.liferay.application.list.api", version: "1.0.0"
+	compileOnly group: "com.liferay", name: "com.liferay.petra.function"
 	compileOnly group: "com.liferay", name: "com.liferay.petra.string", version: "2.1.4"
 	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "3.0.0"
 	compileOnly group: "com.liferay.portal", name: "com.liferay.util.bridges", version: "2.0.0"
